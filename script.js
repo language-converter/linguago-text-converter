@@ -8,6 +8,15 @@ async function translateText() {
         return;
     }
 
+    // If "Auto Detect" is selected, detect the language first
+    if (inputLang === "auto") {
+        inputLang = await detectLanguage(inputText);
+        if (!inputLang) {
+            alert("Could not detect language. Please select manually.");
+            return;
+        }
+    }
+
     let url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(inputText)}&langpair=${inputLang}|${outputLang}`;
 
     try {
@@ -17,5 +26,19 @@ async function translateText() {
     } catch (error) {
         console.error("Error:", error);
         alert("There was a problem with the translation!");
+    }
+}
+
+// 🔹 Function to detect language using MyMemory API
+async function detectLanguage(text) {
+    let detectUrl = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=auto|en`;
+
+    try {
+        let response = await fetch(detectUrl);
+        let data = await response.json();
+        return data.responseData.detectedLanguage ? data.responseData.detectedLanguage : null;
+    } catch (error) {
+        console.error("Language detection error:", error);
+        return null;
     }
 }
