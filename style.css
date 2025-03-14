@@ -60,6 +60,37 @@ button:hover {
     background: #0056b3;
 }
 
+/* About Section Styling */
+#about {
+    background: #f8f8f8;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+#about h2 {
+    color: #ff3b3b;
+    font-size: 24px;
+}
+
+#about p {
+    font-size: 16px;
+    color: #333;
+    margin: 5px 0;
+}
+
+#about a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#about a:hover {
+    text-decoration: underline;
+}
+
 /* Dark mode support */
 @media (prefers-color-scheme: dark) {
     body {
@@ -72,5 +103,14 @@ button:hover {
     textarea, select, button {
         background: #444;
         color: white;
+    }
+    #about {
+        background: #333;
+    }
+    #about p {
+        color: white;
+    }
+    #about a {
+        color: #ffcc00;
     }
 }
