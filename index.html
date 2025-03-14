@@ -3,53 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="ijyy1K-dl6-U5rbtlhvOJDiQ13ERJ3XJdCSq3sKJrcA" />
-    <title>LinguaGo - AI Text Translator</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>LinguaGo - Multilingual Translator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>LinguaGo - AI Text Translator</h1>
-        <textarea id="inputText" placeholder="Enter text to translate..."></textarea>
-        
-        <select id="languageSelect">
-            <option value="en">English</option>
-            <option value="bn">Bengali</option>
-            <option value="hi">Hindi</option>
-            <option value="es">Spanish</option>
-            <option value="fr">French</option>
-            <option value="de">German</option>
-            <option value="zh">Chinese</option>
-            <option value="ja">Japanese</option>
-            <option value="ru">Russian</option>
-            <option value="ar">Arabic</option>
-            <option value="it">Italian</option>
-            <option value="pt">Portuguese</option>
-            <option value="ko">Korean</option>
-        </select>
-        
-        <button onclick="translateText()">Translate</button>
-        
-        <h3>Translated Text:</h3>
-        <textarea id="translatedText" readonly></textarea>
-        <button onclick="copyText()">Copy</button>
+        <h2>LinguaGo - AI Language Translator</h2>
 
-        <!-- ✅ App Details Section ✅ -->
-        <div class="app-details">
-            <h2>📌 About LinguaGo</h2>
-            <p><strong>App Name:</strong> LinguaGo - AI Text Translator</p>
-            <p><strong>Version:</strong> 1.0</p>
-            <p><strong>Developer:</strong> Sujon Santra</p>
-            <p><strong>Features:</strong> AI-Powered Translation, 100+ Languages, Copy Text Option</p>
-            <p><strong>Website:</strong> <a href="https://github.com/your-repo" target="_blank">GitHub Repo</a></p>
+        <div class="translator">
+            <!-- Input language selection -->
+            <select id="inputLang">
+                <option value="auto">Auto Detect</option>
+                <option value="bn">Bengali</option>
+                <option value="hi">Hindi</option>
+                <option value="en">English</option>
+                <option value="ta">Tamil</option>
+                <option value="te">Telugu</option>
+                <option value="mr">Marathi</option>
+                <option value="pa">Punjabi</option>
+                <option value="gu">Gujarati</option>
+                <option value="ml">Malayalam</option>
+                <option value="kn">Kannada</option>
+                <option value="or">Odia</option>
+                <option value="as">Assamese</option>
+                <option value="ne">Nepali</option>
+                <option value="fr">French</option>
+                <option value="es">Spanish</option>
+                <option value="zh">Chinese</option>
+                <option value="ja">Japanese</option>
+                <option value="de">German</option>
+                <option value="ru">Russian</option>
+                <option value="ar">Arabic</option>
+                <option value="pt">Portuguese</option>
+                <option value="ko">Korean</option>
+            </select>
+
+            <!-- Input text area -->
+            <textarea id="inputText" placeholder="Enter text here..."></textarea>
+
+            <!-- Output language selection -->
+            <select id="outputLang">
+                <option value="bn">Bengali</option>
+                <option value="hi">Hindi</option>
+                <option value="en">English</option>
+                <option value="ta">Tamil</option>
+                <option value="te">Telugu</option>
+                <option value="mr">Marathi</option>
+                <option value="pa">Punjabi</option>
+                <option value="gu">Gujarati</option>
+                <option value="ml">Malayalam</option>
+                <option value="kn">Kannada</option>
+                <option value="or">Odia</option>
+                <option value="as">Assamese</option>
+                <option value="ne">Nepali</option>
+                <option value="fr">French</option>
+                <option value="es">Spanish</option>
+                <option value="zh">Chinese</option>
+                <option value="ja">Japanese</option>
+                <option value="de">German</option>
+                <option value="ru">Russian</option>
+                <option value="ar">Arabic</option>
+                <option value="pt">Portuguese</option>
+                <option value="ko">Korean</option>
+            </select>
+
+            <!-- Output text area (readonly) -->
+            <textarea id="outputText" placeholder="Translation will appear here..." readonly></textarea>
+
+            <!-- Translate button -->
+            <button onclick="translateText()">Translate</button>
         </div>
-    </div>
-
-    <div class="footer">
-        <p>LinguaGo - AI Text Translator</p>
-        <p>© 2025 Sujon Santra | All Rights Reserved</p>
     </div>
 
     <script src="script.js"></script>
 </body>
-    </html>
+                </html>
