@@ -1,20 +1,31 @@
 async function translateText() {
     let inputText = document.getElementById("inputText").value;
-    let inputLang = document.getElementById("inputLang").value;
-    let outputLang = document.getElementById("outputLang").value;
+    let inputLangDropdown = document.getElementById("inputLang");
+    let outputLangDropdown = document.getElementById("outputLang");
+
+    let inputLang = inputLangDropdown.value;
+    let outputLang = outputLangDropdown.value;
 
     if (inputText.trim() === "") {
         alert("Please enter some text!");
         return;
     }
 
-    // If "Auto Detect" is selected, detect the language first
+    // If "Auto Detect" is selected, detect the language first and update dropdown
     if (inputLang === "auto") {
         inputLang = await detectLanguage(inputText);
         if (!inputLang) {
             alert("Could not detect language. Please select manually.");
             return;
         }
+        // Set the detected language in the dropdown
+        inputLangDropdown.value = inputLang;
+    }
+
+    // If no output language is selected, default to Bengali
+    if (!outputLang) {
+        outputLang = "bn";
+        outputLangDropdown.value = "bn";
     }
 
     let url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(inputText)}&langpair=${inputLang}|${outputLang}`;
