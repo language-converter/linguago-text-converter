@@ -1,4 +1,3 @@
 User-agent: *
-Disallow: 
-
+Allow: /
 Sitemap: https://language-converter.github.io/linguago-text-converter/sitemap.xml
