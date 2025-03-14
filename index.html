@@ -4,50 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LinguaGo - AI Text Translator</title>
-    <link rel="stylesheet" href="style.css"> <!-- CSS ফাইল লিঙ্ক করুন -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <h1>LinguaGo - AI Text Translator</h1>
         <textarea id="inputText" placeholder="Enter text to translate..."></textarea>
+        
         <select id="languageSelect">
-            <option value="en">English</option>
-            <option value="bn">Bengali (বাংলা)</option>
-            <option value="hi">Hindi (हिन्दी)</option>
-            <option value="ta">Tamil (தமிழ்)</option>
-            <option value="gu">Gujarati (ગુજરાતી)</option>
-            <option value="es">Spanish (Español)</option>
-            <option value="fr">French (Français)</option>
-            <option value="de">German (Deutsch)</option>
-            <option value="zh">Chinese (中文)</option>
-            <option value="ja">Japanese (日本語)</option>
-            <option value="ko">Korean (한국어)</option>
-            <option value="ar">Arabic (العربية)</option>
-            <option value="ru">Russian (Русский)</option>
-            <option value="pt">Portuguese (Português)</option>
-            <option value="it">Italian (Italiano)</option>
+            <option value="bn">Bengali</option>
+            <option value="hi">Hindi</option>
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+            <option value="de">German</option>
+            <option value="zh">Chinese</option>
+            <option value="ja">Japanese</option>
+            <option value="ru">Russian</option>
+            <option value="ar">Arabic</option>
+            <option value="it">Italian</option>
+            <option value="pt">Portuguese</option>
+            <option value="ko">Korean</option>
         </select>
+        
         <button onclick="translateText()">Translate</button>
-        <p class="translated-text" id="translatedText"></p>
-        <button onclick="copyText()">Copy Translation</button>
+        
+        <h3>Translated Text:</h3>
+        <textarea id="translatedText" readonly></textarea>
+        <button onclick="copyText()">Copy</button>
+
+        <!-- ✅ App Details Section ✅ -->
+        <div class="app-details">
+            <h2>📌 About LinguaGo</h2>
+            <p><strong>App Name:</strong> LinguaGo - AI Text Translator</p>
+            <p><strong>Version:</strong> 1.0</p>
+            <p><strong>Developer:</strong> Sujon Santra</p>
+            <p><strong>Features:</strong> AI-Powered Translation, 100+ Languages, Copy Text Option</p>
+            <p><strong>Website:</strong> <a href="https://github.com/your-repo" target="_blank">GitHub Repo</a></p>
+        </div>
     </div>
 
-    <div class="container app-details">
-        <h2>App Details</h2>
-        <p><strong>App Name:</strong> LinguaGo - AI Text Translator</p>
-        <p><strong>Version:</strong> 1.0</p>
-        <p><strong>Developer:</strong> Sujon Santra</p>
-        <p><strong>Features:</strong></p>
-        <ul>
-            <li>AI-Powered Translation</li>
-            <li>100+ Languages Supported</li>
-            <li>User-Friendly Design</li>
-            <li>Background Image Support</li>
-            <li>Copy Translation Option</li>
-        </ul>
-        <p><strong>About:</strong> LinguaGo is a powerful AI-based text translation tool that supports over 100 languages. It is designed to provide a seamless translation experience with a user-friendly interface.</p>
+    <div class="footer">
+        <p>LinguaGo - AI Text Translator</p>
+        <p>© 2025 Sujon Santra | All Rights Reserved</p>
     </div>
 
-    <script src="script.js"></script> <!-- JavaScript ফাইল লিঙ্ক করুন -->
+    <script src="script.js"></script>
 </body>
-</html>
+    </html>
