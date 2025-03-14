@@ -1,15 +1,18 @@
-// Placeholder for translation logic
 function translateText() {
-    const inputText = document.getElementById('inputText').value;
-    const language = document.getElementById('languageSelect').value;
-    // Simulate translation (replace with actual API call)
-    const translatedText = `Translated (${language}): ${inputText}`;
-    document.getElementById('translatedText').innerText = translatedText;
+    let text = document.getElementById("inputText").value;
+    let language = document.getElementById("languageSelect").value;
+
+    fetch(`https://api.mymemory.translated.net/get?q=${text}&langpair=en|${language}`)
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById("translatedText").value = data.responseData.translatedText;
+    })
+    .catch(error => console.error('Error:', error));
 }
 
 function copyText() {
-    const text = document.getElementById('translatedText').innerText;
-    navigator.clipboard.writeText(text).then(() => {
-        alert('Text copied to clipboard');
-    });
+    var copyText = document.getElementById("translatedText");
+    copyText.select();
+    document.execCommand("copy");
+    alert("Copied to clipboard!");
 }
