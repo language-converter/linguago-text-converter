@@ -1,41 +1,21 @@
-function translateText() {
-    let text = document.getElementById("inputText").value.trim(); // Trim the input
-    let language = document.getElementById("languageSelect").value;
+async function translateText() {
+    let inputText = document.getElementById("inputText").value;
+    let inputLang = document.getElementById("inputLang").value;
+    let outputLang = document.getElementById("outputLang").value;
 
-    if (text === "") {
-        alert("Please enter some text to translate.");
+    if (inputText.trim() === "") {
+        alert("Please enter some text!");
         return;
     }
 
-    fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=en|${language}`)
-    .then(response => response.json())
-    .then(data => {
-        if (data.responseData && data.responseData.translatedText) {
-            document.getElementById("translatedText").value = data.responseData.translatedText;
-        } else {
-            document.getElementById("translatedText").value = "Translation failed. Try again.";
-            console.error("Translation API error:", data);
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        document.getElementById("translatedText").value = "Error in translation.";
-    });
-}
+    let url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(inputText)}&langpair=${inputLang}|${outputLang}`;
 
-function copyText() {
-    let copyText = document.getElementById("translatedText");
-    
-    if (copyText.value === "") {
-        alert("Nothing to copy!");
-        return;
+    try {
+        let response = await fetch(url);
+        let data = await response.json();
+        document.getElementById("outputText").value = data.responseData.translatedText;
+    } catch (error) {
+        console.error("Error:", error);
+        alert("There was a problem with the translation!");
     }
-
-    copyText.select();
-    navigator.clipboard.writeText(copyText.value).then(() => {
-        alert("Copied to clipboard!");
-    }).catch(err => {
-        console.error("Copy failed:", err);
-        alert("Failed to copy.");
-    });
 }
