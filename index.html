@@ -11,7 +11,6 @@
         <h2>LinguaGo - AI Language Translator</h2>
 
         <div class="translator">
-            <!-- Input language selection -->
             <select id="inputLang">
                 <option value="auto">Auto Detect</option>
                 <option value="bn">Bengali</option>
@@ -38,10 +37,8 @@
                 <option value="ko">Korean</option>
             </select>
 
-            <!-- Input text area -->
-            <textarea id="inputText" placeholder="Enter text here..."></textarea>
+            <textarea id="inputText" placeholder="Type here..."></textarea>
 
-            <!-- Output language selection -->
             <select id="outputLang">
                 <option value="bn">Bengali</option>
                 <option value="hi">Hindi</option>
@@ -67,14 +64,23 @@
                 <option value="ko">Korean</option>
             </select>
 
-            <!-- Output text area (readonly) -->
             <textarea id="outputText" placeholder="Translation will appear here..." readonly></textarea>
 
-            <!-- Translate button -->
             <button onclick="translateText()">Translate</button>
         </div>
     </div>
 
+    <!-- About Section -->
+    <div id="about">
+        <h2>📌 About LinguaGo</h2>
+        <p><strong>App Name:</strong> LinguaGo - AI Text Translator</p>
+        <p><strong>Version:</strong> 1.0</p>
+        <p><strong>Developer:</strong> Sujon Santra</p>
+        <p><strong>Features:</strong> AI-Powered Translation, 100+ Languages, Copy Text Option</p>
+        <p><strong>Website:</strong> <a href="https://github.com/YOUR_GITHUB_REPO" target="_blank">GitHub Repo</a></p>
+        <p>&copy; 2025 Sujon Santra | All Rights Reserved</p>
+    </div>
+
     <script src="script.js"></script>
 </body>
-                </html>
+    </html>
