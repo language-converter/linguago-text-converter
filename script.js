@@ -1,18 +1,41 @@
 function translateText() {
-    let text = document.getElementById("inputText").value;
+    let text = document.getElementById("inputText").value.trim(); // Trim the input
     let language = document.getElementById("languageSelect").value;
 
-    fetch(`https://api.mymemory.translated.net/get?q=${text}&langpair=en|${language}`)
+    if (text === "") {
+        alert("Please enter some text to translate.");
+        return;
+    }
+
+    fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=en|${language}`)
     .then(response => response.json())
     .then(data => {
-        document.getElementById("translatedText").value = data.responseData.translatedText;
+        if (data.responseData && data.responseData.translatedText) {
+            document.getElementById("translatedText").value = data.responseData.translatedText;
+        } else {
+            document.getElementById("translatedText").value = "Translation failed. Try again.";
+            console.error("Translation API error:", data);
+        }
     })
-    .catch(error => console.error('Error:', error));
+    .catch(error => {
+        console.error('Error:', error);
+        document.getElementById("translatedText").value = "Error in translation.";
+    });
 }
 
 function copyText() {
-    var copyText = document.getElementById("translatedText");
+    let copyText = document.getElementById("translatedText");
+    
+    if (copyText.value === "") {
+        alert("Nothing to copy!");
+        return;
+    }
+
     copyText.select();
-    document.execCommand("copy");
-    alert("Copied to clipboard!");
+    navigator.clipboard.writeText(copyText.value).then(() => {
+        alert("Copied to clipboard!");
+    }).catch(err => {
+        console.error("Copy failed:", err);
+        alert("Failed to copy.");
+    });
 }
