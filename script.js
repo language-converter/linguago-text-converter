@@ -1,30 +1,29 @@
 async function translateText() {
-    let inputText = document.getElementById("inputText").value;
+    let inputText = document.getElementById("inputText").value.trim();
     let inputLangDropdown = document.getElementById("inputLang");
     let outputLangDropdown = document.getElementById("outputLang");
 
     let inputLang = inputLangDropdown.value;
     let outputLang = outputLangDropdown.value;
 
-    if (inputText.trim() === "") {
+    if (inputText === "") {
         alert("Please enter some text!");
         return;
     }
 
-    // If "Auto Detect" is selected, detect the language first and update dropdown
+    // Auto-detect language
     if (inputLang === "auto") {
         inputLang = await detectLanguage(inputText);
         if (!inputLang) {
             alert("Could not detect language. Please select manually.");
             return;
         }
-        // Set the detected language in the dropdown
         inputLangDropdown.value = inputLang;
     }
 
-    // If no output language is selected, default to Bengali
+    // Default output language if not selected
     if (!outputLang) {
-        outputLang = "bn";
+        outputLang = "bn"; 
         outputLangDropdown.value = "bn";
     }
 
@@ -33,15 +32,29 @@ async function translateText() {
     try {
         let response = await fetch(url);
         let data = await response.json();
-        document.getElementById("outputText").value = data.responseData.translatedText;
+        
+        if (data.responseData && data.responseData.translatedText) {
+            document.getElementById("outputText").value = data.responseData.translatedText;
+        } else {
+            alert("Translation failed. Try again!");
+        }
     } catch (error) {
-        console.error("Error:", error);
+        console.error("Translation error:", error);
         alert("There was a problem with the translation!");
     }
 }
 
-// 🔹 Function to detect language using MyMemory API
+// 🔹 Improved Language Detection Function
 async function detectLanguage(text) {
+    // Simple rule-based phonetic Bengali detection
+    let bengaliLikePattern = /^[A-Za-z\s]+$/; // If input contains only English letters
+    let possibleBanglaWords = ["ami", "tumi", "valo", "bhalo", "shubho", "shundor", "ei", "kichu", "onek"];
+
+    if (bengaliLikePattern.test(text.toLowerCase()) && possibleBanglaWords.some(word => text.toLowerCase().includes(word))) {
+        return "bn"; // If it looks like phonetic Bengali, return Bengali
+    }
+
+    // API-based detection (fallback)
     let detectUrl = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=auto|en`;
 
     try {
@@ -52,4 +65,4 @@ async function detectLanguage(text) {
         console.error("Language detection error:", error);
         return null;
     }
-}
+                               }
