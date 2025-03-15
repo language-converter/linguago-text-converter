@@ -23,8 +23,8 @@ async function translateText() {
 
     // Default output language if not selected
     if (!outputLang) {
-        outputLang = "bn"; 
-        outputLangDropdown.value = "bn";
+        outputLang = "en"; 
+        outputLangDropdown.value = "en";
     }
 
     let url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(inputText)}&langpair=${inputLang}|${outputLang}`;
