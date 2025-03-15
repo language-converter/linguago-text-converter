@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: auto; padding: 20px; line-height: 1.6; }
+        h1, h2 { color: #2c3e50; }
+        .contact-box { background: #f4f4f4; padding: 20px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+
+    <h1>Contact</h1>
+    <p>If you have any questions or suggestions, feel free to contact us.</p>
+
+    <div class="contact-box">
+        <h2>Our Contact Information</h2>
+        <p><strong>Email:</strong> <a href="mailto:sujansantra8975@gmail.com">sujansantra8975@gmail.com</a></p>
+        <p><strong>Facebook:</strong> <a href="#">Facebook Page</a></p>
+        <p><strong>Twitter:</strong> <a href="#">Twitter Profile</a></p>
+    </div>
+
+    <h2>Contact Form</h2>
+    <form action="mailto:sujansantra8975@gmail.com" method="post" enctype="text/plain">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="message">Your Message:</label><br>
+        <textarea id="message" name="message" rows="4" required></textarea><br><br>
+
+        <button type="submit">Send</button>
+    </form>
+
+</body>
+</html>
