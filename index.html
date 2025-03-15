@@ -23,13 +23,24 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- 🔹 Navigation Bar (New Menu Added) -->
+    <nav>
+        <div class="logo">LinguaGo</div>
+        <ul>
+            <li><a href="index.html">🏠 Home</a></li>
+            <li><a href="contact.html">📞 Contact</a></li>
+            <li><a href="privacy.html">🔐 Privacy Policy</a></li>
+        </ul>
+    </nav>
+
     <div class="container">
         <h2>LinguaGo - AI Language Translator</h2>
 
         <div class="translator">
             <select id="inputLang">
-                <option value="auto">Auto Detect</option>
-                <option value="bn">Bengali</option>
+                <option value="auto" selected>Auto Detect</option>
+                <option value="bn" selected>Bengali</option>
                 <option value="hi">Hindi</option>
                 <option value="en">English</option>
                 <option value="ta">Tamil</option>
@@ -56,7 +67,7 @@
             <textarea id="inputText" placeholder="Type here..."></textarea>
 
             <select id="outputLang">
-                <option value="bn">Bengali</option>
+                <option value="bn" selected>Bengali</option>
                 <option value="hi">Hindi</option>
                 <option value="en">English</option>
                 <option value="ta">Tamil</option>
@@ -99,4 +110,4 @@
 
     <script src="script.js"></script>
 </body>
-    </html>
+            </html>
