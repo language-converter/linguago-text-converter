@@ -1,3 +1,35 @@
+// ✅ Dark Mode Toggle Function
+document.getElementById("darkModeToggle").addEventListener("click", function () {
+    document.body.classList.toggle("dark-mode");
+});
+
+// ✅ Copy Translated Text Function
+document.getElementById("copyButton").addEventListener("click", function () {
+    let outputText = document.getElementById("outputText");
+    outputText.select();
+    document.execCommand("copy");
+    alert("Copied!");
+});
+
+// ✅ Speech-to-Text (Voice Input)
+function startSpeechToText() {
+    let recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    recognition.lang = document.getElementById("inputLang").value;
+    recognition.start();
+    recognition.onresult = function (event) {
+        document.getElementById("inputText").value = event.results[0][0].transcript;
+    };
+}
+
+// ✅ Text-to-Speech (Read Aloud Translation)
+function speakText() {
+    let msg = new SpeechSynthesisUtterance();
+    msg.text = document.getElementById("outputText").value;
+    msg.lang = document.getElementById("outputLang").value;
+    window.speechSynthesis.speak(msg);
+}
+
+// ✅ Translation Functionality (Using Google Translate API)
 async function translateText() {
     let inputText = document.getElementById("inputText").value.trim();
     let inputLangDropdown = document.getElementById("inputLang");
@@ -11,7 +43,7 @@ async function translateText() {
         return;
     }
 
-    // Auto-detect language
+    // ✅ Auto-detect language if "auto" is selected
     if (inputLang === "auto") {
         inputLang = await detectLanguage(inputText);
         if (!inputLang) {
@@ -21,7 +53,7 @@ async function translateText() {
         inputLangDropdown.value = inputLang;
     }
 
-    // Default output language if not selected
+    // ✅ Default output language if not selected
     if (!outputLang) {
         outputLang = "en"; 
         outputLangDropdown.value = "en";
@@ -44,9 +76,9 @@ async function translateText() {
     }
 }
 
-// 🔹 Improved Language Detection Function
+// ✅ Improved Language Detection Function
 async function detectLanguage(text) {
-    // Simple rule-based phonetic Bengali detection
+    // ✅ Simple rule-based Bengali detection
     let bengaliLikePattern = /^[A-Za-z\s]+$/; // If input contains only English letters
     let possibleBanglaWords = ["ami", "tumi", "valo", "bhalo", "shubho", "shundor", "ei", "kichu", "onek"];
 
@@ -54,7 +86,7 @@ async function detectLanguage(text) {
         return "bn"; // If it looks like phonetic Bengali, return Bengali
     }
 
-    // API-based detection (fallback)
+    // ✅ API-based detection (fallback)
     let detectUrl = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=auto|en`;
 
     try {
@@ -65,4 +97,7 @@ async function detectLanguage(text) {
         console.error("Language detection error:", error);
         return null;
     }
-                               }
+}
+
+// ✅ Event Listener for Translate Button
+document.getElementById("translateButton").addEventListener("click", translateText);
