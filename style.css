@@ -14,9 +14,7 @@ body {
     color: white;
 }
 
-.dark-mode .container, 
-.dark-mode #about, 
-.dark-mode .guideline-container {
+.dark-mode .container {
     background-color: #333;
     color: white;
 }
@@ -32,22 +30,18 @@ body {
     background: #0056b3;
 }
 
-.dark-mode nav ul li a {
-    color: #ffcc00;
-}
-
 /* Dark Mode Toggle Button */
 #darkModeToggle {
     position: fixed;
-    bottom: 10px;  /* Moved to the bottom */
-    left: 10px;    /* Positioned to the left */
+    bottom: 10px;
+    left: 10px;
     background: #000;
     color: #fff;
     border: none;
     padding: 12px;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px; /* Increased font size */
+    font-size: 16px;
     transition: 0.3s;
 }
 
@@ -61,13 +55,7 @@ nav {
     color: white;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     padding: 15px 20px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.dark-mode nav {
-    background: #333; /* Dark mode color update */
 }
 
 nav .logo {
@@ -78,8 +66,6 @@ nav .logo {
 nav ul {
     list-style: none;
     display: flex;
-    margin: 0;
-    padding: 0;
 }
 
 nav ul li {
@@ -90,14 +76,9 @@ nav ul li a {
     color: white;
     text-decoration: none;
     font-size: 18px;
-    transition: 0.3s;
 }
 
-nav ul li a:hover {
-    text-decoration: underline;
-}
-
-/* Container styling */
+/* Translator Section */
 .container {
     max-width: 600px;
     background: white;
@@ -107,77 +88,34 @@ nav ul li a:hover {
     margin: auto;
 }
 
-/* Translator Section */
-.translator {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
 /* Textarea Styling */
 textarea {
     width: 100%;
-    height: 150px; /* Increased height */
+    height: 100px;
     padding: 10px;
     border-radius: 5px;
-    border: 2px solid #007bff; /* Improved border */
-    resize: none;
-}
-
-/* Dropdown and Button Styling */
-select, button {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    cursor: pointer;
+    border: 2px solid #007bff;
 }
 
 /* Button Styling */
 button {
     background: linear-gradient(90deg, #007bff, #0056b3);
     color: white;
+    padding: 10px;
     border: none;
     font-size: 16px;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 button:hover {
     background: #0056b3;
 }
 
-/* Copy Button */
-#copyButton {
-    background: #1e7e34; /* Dark green */
-}
-
-#copyButton:hover {
-    background: #218838;
-}
-
-/* Speech-to-Text & Text-to-Speech Buttons */
-.speech-btn {
-    background: #ffa500; /* Orange */
-    color: black;
-}
-
-.speech-btn:hover {
-    background: #e69500;
-}
-
-/* About Section */
-#about {
-    background: linear-gradient(135deg, #f8f8f8, #e6e6e6);
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 20px;
-    text-align: center;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     .container {
-        width: 100%; /* Full width for mobile */
+        width: 100%;
     }
     nav {
         flex-direction: column;
