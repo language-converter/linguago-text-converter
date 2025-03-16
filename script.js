@@ -1,61 +1,104 @@
-document.getElementById("darkModeToggle").addEventListener("click", function () {
-    document.body.classList.toggle("dark-mode");
+// Dark & Light Mode Toggle
+const modeToggle = document.getElementById('mode-toggle');
+const body = document.body;
+
+modeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    modeToggle.textContent = body.classList.contains('dark-mode') ? '☀️' : '🌙';
 });
 
-document.getElementById("copyButton").addEventListener("click", function () {
-    let outputText = document.getElementById("outputText");
-    outputText.select();
-    document.execCommand("copy");
-    alert("Copied!");
+// Translation History
+let history = [];
+
+function addToHistory(sourceText, translatedText, sourceLang, targetLang) {
+    history.push({ sourceText, translatedText, sourceLang, targetLang });
+    updateHistoryUI();
+}
+
+function updateHistoryUI() {
+    const historyList = document.getElementById('history-list');
+    historyList.innerHTML = history
+        .map(
+            (entry, index) => `
+            <li>
+                <strong>${entry.sourceLang} → ${entry.targetLang}:</strong><br>
+                ${entry.sourceText} → ${entry.translatedText}
+            </li>
+        `
+        )
+        .join('');
+}
+
+// Text-to-Speech
+function speakText(text, lang) {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = lang;
+    speechSynthesis.speak(utterance);
+}
+
+document.getElementById('speak-input').addEventListener('click', () => {
+    const inputText = document.getElementById('input-text').value;
+    speakText(inputText, sourceLang.value);
 });
 
-function speakText() {
-    let msg = new SpeechSynthesisUtterance();
-    msg.text = document.getElementById("outputText").value;
-    msg.lang = document.getElementById("outputLang").value;
-    window.speechSynthesis.speak(msg);
+document.getElementById('speak-output').addEventListener('click', () => {
+    const outputText = document.getElementById('output-text').value;
+    speakText(outputText, targetLang.value);
+});
+
+// Speech-to-Text
+document.getElementById('input-text').addEventListener('click', () => {
+    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    recognition.lang = sourceLang.value;
+    recognition.start();
+    recognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript;
+        document.getElementById('input-text').value = transcript;
+    };
+});
+
+// QR Code Generator
+document.getElementById('generate-qr').addEventListener('click', () => {
+    const outputText = document.getElementById('output-text').value;
+    const qrCode = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(outputText)}`;
+    document.getElementById('qr-code').innerHTML = `<img src="${qrCode}" alt="QR Code for Translation">`;
+});
+
+// Save Translation
+document.getElementById('save-translation').addEventListener('click', () => {
+    const outputText = document.getElementById('output-text').value;
+    const blob = new Blob([outputText], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'translation.txt';
+    a.click();
+    URL.revokeObjectURL(url);
+});
+
+// Loading Spinner
+function showLoadingSpinner() {
+    document.getElementById('loading-spinner').style.display = 'block';
 }
 
-async function translateText() {
-    let inputText = document.getElementById("inputText").value.trim();
-    let inputLang = document.getElementById("inputLang").value;
-    let outputLang = document.getElementById("outputLang").value;
-
-    if (!inputText) {
-        alert("Please enter some text!");
-        return;
-    }
-
-    let url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=${inputLang}&tl=${outputLang}&dt=t&q=${encodeURIComponent(inputText)}`;
-
-    let response = await fetch(url);
-    let data = await response.json();
-
-    document.getElementById("outputText").value = data[0].map(item => item[0]).join(" ");
+function hideLoadingSpinner() {
+    document.getElementById('loading-spinner').style.display = 'none';
 }
 
-document.getElementById("translateButton").addEventListener("click", translateText);
-
-async function convertImage() {
-    let file = document.getElementById("imageUpload").files[0];
-    if (!file) {
-        alert("Please upload an image first!");
-        return;
-    }
-
-    let formData = new FormData();
-    formData.append("file", file);
-    formData.append("apikey", "YOUR_OCR_API_KEY");
-
-    let response = await fetch("https://api.ocr.space/parse/image", {
-        method: "POST",
-        body: formData
-    });
-
-    let data = await response.json();
-    document.getElementById("inputText").value = data.ParsedResults[0].ParsedText;
+// Placeholder Translation Function
+function translateText(text, sourceLang, targetLang) {
+    showLoadingSpinner();
+    setTimeout(() => {
+        hideLoadingSpinner();
+        const translatedText = `Translated (${sourceLang} to ${targetLang}): ${text}`;
+        addToHistory(text, translatedText, sourceLang, targetLang);
+        return translatedText;
+    }, 1000);
 }
 
-function saveToDrive() {
-    alert("Google Drive integration coming soon!");
-}
+// Instant Translation While Typing
+inputText.addEventListener('input', () => {
+    const text = inputText.value;
+    const translatedText = translateText(text, sourceLang.value, targetLang.value);
+    outputText.value = translatedText;
+});
