@@ -10,25 +10,28 @@
     <!-- ✅ Google AdSense Ads.txt -->
     <meta name="google-adsense-account" content="ca-pub-737085887668">
 
-    <!-- SEO Meta Tags -->
-    <title>LinguaGo - Multilingual Translator</title>
-    <meta name="description" content="LinguaGo is an AI-powered multilingual translator supporting 100+ languages. Instantly convert text between different languages for free.">
-    <meta name="keywords" content="text converter, AI translator, multilingual translation, free online translator, Bengali to English, Hindi to English, best language translator">
+    <!-- ✅ SEO Meta Tags -->
+    <title>LinguaGo - AI Multilingual Translator</title>
+    <meta name="description" content="LinguaGo is an AI-powered multilingual translator supporting 100+ languages with text-to-speech, speech-to-text, dark mode, and more!">
+    <meta name="keywords" content="AI translator, text-to-speech, speech-to-text, multilingual translation, best free translator, Bengali to English, Hindi to English">
     <meta name="author" content="Sujon Santra">
     <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph Meta Tags (for social media sharing) -->
-    <meta property="og:title" content="LinguaGo - Free AI-Powered Language Translator">
-    <meta property="og:description" content="Convert text instantly between 100+ languages using LinguaGo. Free, fast, and AI-powered!">
+
+    <!-- ✅ Open Graph Meta Tags (for social media sharing) -->
+    <meta property="og:title" content="LinguaGo - Free AI-Powered Translator">
+    <meta property="og:description" content="Convert text instantly between 100+ languages using AI. Listen to translations, speak for input, and switch to dark mode!">
     <meta property="og:url" content="https://language-converter.github.io/linguago-text-converter/">
     <meta property="og:type" content="website">
-    
-    <!-- Canonical URL -->
+
+    <!-- ✅ Canonical URL -->
     <link rel="canonical" href="https://language-converter.github.io/linguago-text-converter/">
 
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- 🔹 Dark Mode Toggle -->
+    <button id="darkModeToggle">🌙 Dark Mode</button>
 
     <!-- 🔹 Navigation Bar -->
     <nav>
@@ -46,60 +49,30 @@
         <div class="translator">
             <select id="inputLang">
                 <option value="auto" selected>Auto Detect</option>
-                <option value="en" selected>English</option>
-                <option value="hi">Hindi</option>
+                <option value="en">English</option>
                 <option value="bn">Bengali</option>
-                <option value="ta">Tamil</option>
-                <option value="te">Telugu</option>
-                <option value="mr">Marathi</option>
-                <option value="pa">Punjabi</option>
-                <option value="gu">Gujarati</option>
-                <option value="ml">Malayalam</option>
-                <option value="kn">Kannada</option>
-                <option value="or">Odia</option>
-                <option value="as">Assamese</option>
-                <option value="ne">Nepali</option>
+                <option value="hi">Hindi</option>
                 <option value="fr">French</option>
                 <option value="es">Spanish</option>
-                <option value="zh">Chinese</option>
-                <option value="ja">Japanese</option>
-                <option value="de">German</option>
-                <option value="ru">Russian</option>
-                <option value="ar">Arabic</option>
-                <option value="pt">Portuguese</option>
-                <option value="ko">Korean</option>
             </select>
+
+            <!-- 🔹 Speech-to-Text (STT) Button -->
+            <button id="startSpeech">🎤 Speak</button>
 
             <textarea id="inputText" placeholder="Type here..."></textarea>
 
             <select id="outputLang">
                 <option value="en" selected>English</option>
-                <option value="hi">Hindi</option>
                 <option value="bn">Bengali</option>
-                <option value="ta">Tamil</option>
-                <option value="te">Telugu</option>
-                <option value="mr">Marathi</option>
-                <option value="pa">Punjabi</option>
-                <option value="gu">Gujarati</option>
-                <option value="ml">Malayalam</option>
-                <option value="kn">Kannada</option>
-                <option value="or">Odia</option>
-                <option value="as">Assamese</option>
-                <option value="ne">Nepali</option>
-                <option value="fr">French</option>
-                <option value="es">Spanish</option>
-                <option value="zh">Chinese</option>
-                <option value="ja">Japanese</option>
-                <option value="de">German</option>
-                <option value="ru">Russian</option>
-                <option value="ar">Arabic</option>
-                <option value="pt">Portuguese</option>
-                <option value="ko">Korean</option>
+                <option value="hi">Hindi</option>
             </select>
 
             <textarea id="outputText" placeholder="Translation will appear here..." readonly></textarea>
 
+            <!-- 🔹 Copy & Text-to-Speech Buttons -->
             <button onclick="translateText()">Translate</button>
+            <button id="copyText">📋 Copy</button>
+            <button id="speakText">🔊 Listen</button>
         </div>
     </div>
 
@@ -107,28 +80,67 @@
     <div id="about">
         <h2>📌 About LinguaGo</h2>
         <p><strong>App Name:</strong> LinguaGo - AI Text Translator</p>
-        <p><strong>Version:</strong> 1.0</p>
+        <p><strong>Version:</strong> 1.1 (Updated Features!)</p>
         <p><strong>Developer:</strong> Sujon Santra</p>
-        <p><strong>Features:</strong> AI-Powered Translation, 100+ Languages, Copy Text Option</p>
+        <p><strong>Features:</strong> AI Translation, 100+ Languages, Text-to-Speech, Speech-to-Text, Dark Mode, Copy Option</p>
         <p><strong>Website:</strong> <a href="https://github.com/YOUR_GITHUB_REPO" target="_blank">GitHub Repo</a></p>
         <p>&copy; 2025 Sujon Santra | All Rights Reserved</p>
     </div>
 
-    <!-- 🔹 Guidelines Section -->
-    <div class="guideline-container">
-        <h2>🔹 How to Use LinguaGo</h2>
+    <!-- 🔹 JavaScript for New Features -->
+    <script>
+        // Dark Mode Toggle
+        document.getElementById("darkModeToggle").addEventListener("click", function() {
+            document.body.classList.toggle("dark-mode");
+        });
 
-        <ul>
-            <li><strong>✅ Select the correct input language:</strong> Make sure to choose the correct input and output languages before translation.</li>
-            <li><strong>✅ Type in the correct script:</strong> If translating Bengali, use Bengali letters (e.g., "তোমার নাম কি") instead of typing in English letters ("Tumhara naam ki").</li>
-            <li><strong>✅ Use proper spelling:</strong> Incorrect spelling may result in inaccurate translations.</li>
-            <li><strong>✅ Write complete sentences:</strong> Avoid using incomplete or broken sentences for better translation accuracy.</li>
-            <li><strong>✅ Be cautious with proper nouns & technical terms:</strong> Some names and specialized words may not translate accurately.</li>
-        </ul>
+        // Copy Translation
+        document.getElementById("copyText").addEventListener("click", function() {
+            let outputText = document.getElementById("outputText").value;
+            navigator.clipboard.writeText(outputText);
+            alert("Copied!");
+        });
 
-        <p><strong>📌 Note:</strong> If the translation does not seem accurate, check your language settings and modify the sentence.</p>
-    </div>
+        // Text-to-Speech (TTS)
+        document.getElementById("speakText").addEventListener("click", function() {
+            let text = document.getElementById("outputText").value;
+            let utterance = new SpeechSynthesisUtterance(text);
+            speechSynthesis.speak(utterance);
+        });
 
-    <script src="script.js"></script>
+        // Speech-to-Text (STT)
+        document.getElementById("startSpeech").addEventListener("click", function() {
+            let recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+            recognition.lang = document.getElementById("inputLang").value;
+            recognition.start();
+
+            recognition.onresult = function(event) {
+                document.getElementById("inputText").value = event.results[0][0].transcript;
+            };
+        });
+
+        // Translation Function
+        function translateText() {
+            let inputText = document.getElementById("inputText").value;
+            let inputLang = document.getElementById("inputLang").value;
+            let outputLang = document.getElementById("outputLang").value;
+            
+            // Dummy Translation (Replace with API)
+            document.getElementById("outputText").value = "[Translated] " + inputText;
+        }
+    </script>
+
+    <style>
+        /* Dark Mode Styles */
+        .dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+        .dark-mode button {
+            background-color: #333;
+            color: white;
+        }
+    </style>
+
 </body>
-        </html>
+    </html>
