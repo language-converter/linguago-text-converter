@@ -4,12 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- ✅ Google AdSense Verification Code -->
-    <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE">
-
-    <!-- ✅ Google AdSense Ads.txt -->
-    <meta name="google-adsense-account" content="ca-pub-737085887668">
-
     <!-- ✅ SEO Meta Tags -->
     <title>LinguaGo - AI Multilingual Translator</title>
     <meta name="description" content="LinguaGo is an AI-powered multilingual translator supporting 100+ languages with text-to-speech, speech-to-text, dark mode, and more!">
@@ -44,9 +38,10 @@
     </nav>
 
     <div class="container">
-        <h2>LinguaGo - AI Language Translator</h2>
+        <h1>LinguaGo - AI Language Translator</h1>
 
         <div class="translator">
+            <h2>🌍 Select Language</h2>
             <select id="inputLang">
                 <option value="auto" selected>Auto Detect</option>
                 <option value="en">English</option>
@@ -55,40 +50,6 @@
                 <option value="ta">தமிழ்</option>
                 <option value="te">తెలుగు</option>
                 <option value="mr">मराठी</option>
-                <option value="gu">ગુજરાતી</option>
-                <option value="kn">ಕನ್ನಡ</option>
-                <option value="pa">ਪੰਜਾਬੀ</option>
-                <option value="ml">മലയാളം</option>
-                <option value="ur">اردو</option>
-                <option value="or">ଓଡ଼ିଆ</option>
-                <option value="as">অসমীয়া</option>
-                <option value="mai">मैथिली</option>
-                <option value="kok">कोंकणी</option>
-                <option value="sd">سنڌي</option>
-                <option value="mni">মণিপুরী</option>
-                <option value="sat">ᱥᱟᱱᱛᱟᱲᱤ</option>
-                <option value="brx">बड़ो</option>
-                <option value="doi">डोगरी</option>
-                <option value="ne">नेपाली</option>
-                <option value="ks">کٲشُر</option>
-                <option value="sa">संस्कृत</option>
-                <option value="bhi">भीली</option>
-                <option value="tcy">ತುಳು</option>
-                <option value="hoc">𑢹𑣉</option>
-                <option value="unr">ᱢᱩᱱᱰᱟᱨᱤ</option>
-                <option value="kru">कुड़ुख</option>
-                <option value="lus">Mizo ṭawng</option>
-                <option value="lep">ᰛᰩᰵᰛᰧᰵ</option>
-                <option value="es">Español</option>
-                <option value="fr">Français</option>
-                <option value="de">Deutsch</option>
-                <option value="ru">Русский</option>
-                <option value="pt">Português</option>
-                <option value="ja">日本語</option>
-                <option value="ko">한국어</option>
-                <option value="zh">中文</option>
-                <option value="ar">العربية</option>
-                <option value="it">Italiano</option>
             </select>
 
             <textarea id="inputText" placeholder="Type here..."></textarea>
@@ -97,18 +58,13 @@
                 <option value="en" selected>English</option>
                 <option value="bn">বাংলা</option>
                 <option value="hi">हिन्दी</option>
-                <option value="ta">தமிழ்</option>
-                <option value="te">తెలుగు</option>
-                <option value="mr">मराठी</option>
-                <option value="gu">ગુજરાતી</option>
-                <option value="kn">ಕನ್ನಡ</option>
-                <option value="pa">ਪੰਜਾਬੀ</option>
-                <option value="ml">മലയാളം</option>
             </select>
 
             <textarea id="outputText" placeholder="Translation will appear here..." readonly></textarea>
 
-            <button onclick="translateText()">Translate</button>
+            <button id="translateButton">Translate</button>
+            <button id="copyButton">📋 Copy</button>
+            <button onclick="speakText()">🔊 Listen</button>
         </div>
     </div>
 
@@ -118,18 +74,9 @@
         <p><strong>App Name:</strong> LinguaGo - AI Text Translator</p>
         <p><strong>Version:</strong> 1.1 (Updated Features!)</p>
         <p><strong>Developer:</strong> Sujon Santra</p>
-        <p><strong>Features:</strong> AI Translation, 100+ Languages, Text-to-Speech, Speech-to-Text, Dark Mode, Copy Option</p>
+        <p><strong>Features:</strong> AI Translation, 100+ Languages, Text-to-Speech, Speech-to-Text, Dark Mode</p>
     </div>
 
-    <!-- 📌 How to Use -->
-    <div id="howToUse">
-        <h2>📌 How to Use</h2>
-        <p>1️⃣ Select the input language (or choose "Auto Detect").</p>
-        <p>2️⃣ Type or paste the text you want to translate.</p>
-        <p>3️⃣ Select the output language.</p>
-        <p>4️⃣ Click "Translate" to get the translated text.</p>
-        <p>5️⃣ Use the "🔊 Listen" button to hear the translation.</p>
-    </div>
-
+    <script src="script.js"></script>
 </body>
-    </html>
+</html>
