@@ -12,17 +12,12 @@ body {
     color: white;
 }
 
-.dark-mode textarea, .dark-mode select, .dark-mode button {
-    background: #444;
-    color: white;
-}
-
 nav {
-    background: #007bff;
+    background: linear-gradient(90deg, #007bff, #0056b3);
     color: white;
     display: flex;
     justify-content: space-between;
-    padding: 15px 20px;
+    padding: 15px;
 }
 
 .container {
@@ -54,4 +49,8 @@ button {
 
 button:hover {
     background: #0056b3;
+}
+
+input[type="file"] {
+    margin: 10px 0;
 }
