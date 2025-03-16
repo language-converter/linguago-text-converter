@@ -35,3 +35,27 @@ async function translateText() {
 }
 
 document.getElementById("translateButton").addEventListener("click", translateText);
+
+async function convertImage() {
+    let file = document.getElementById("imageUpload").files[0];
+    if (!file) {
+        alert("Please upload an image first!");
+        return;
+    }
+
+    let formData = new FormData();
+    formData.append("file", file);
+    formData.append("apikey", "YOUR_OCR_API_KEY");
+
+    let response = await fetch("https://api.ocr.space/parse/image", {
+        method: "POST",
+        body: formData
+    });
+
+    let data = await response.json();
+    document.getElementById("inputText").value = data.ParsedResults[0].ParsedText;
+}
+
+function saveToDrive() {
+    alert("Google Drive integration coming soon!");
+}
