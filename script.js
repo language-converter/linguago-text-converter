@@ -59,14 +59,16 @@ async function translateText() {
         outputLangDropdown.value = "en";
     }
 
-    let url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(inputText)}&langpair=${inputLang}|${outputLang}`;
+    // ✅ Google Translate API Integration
+    let url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=${inputLang}&tl=${outputLang}&dt=t&q=${encodeURIComponent(inputText)}`;
 
     try {
         let response = await fetch(url);
         let data = await response.json();
         
-        if (data.responseData && data.responseData.translatedText) {
-            document.getElementById("outputText").value = data.responseData.translatedText;
+        if (data && data[0]) {
+            let translatedText = data[0].map(item => item[0]).join(" ");
+            document.getElementById("outputText").value = translatedText;
         } else {
             alert("Translation failed. Try again!");
         }
@@ -78,15 +80,6 @@ async function translateText() {
 
 // ✅ Improved Language Detection Function
 async function detectLanguage(text) {
-    // ✅ Simple rule-based Bengali detection
-    let bengaliLikePattern = /^[A-Za-z\s]+$/; // If input contains only English letters
-    let possibleBanglaWords = ["ami", "tumi", "valo", "bhalo", "shubho", "shundor", "ei", "kichu", "onek"];
-
-    if (bengaliLikePattern.test(text.toLowerCase()) && possibleBanglaWords.some(word => text.toLowerCase().includes(word))) {
-        return "bn"; // If it looks like phonetic Bengali, return Bengali
-    }
-
-    // ✅ API-based detection (fallback)
     let detectUrl = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=auto|en`;
 
     try {
