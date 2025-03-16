@@ -1,32 +1,34 @@
-# 🌍 LinguaGo - The Ultimate Free Language Translator 🚀  
+# 🌍 LinguaGo - AI Multilingual Text Converter  
 
-Welcome to **LinguaGo**, a **powerful and free text translator tool** designed to make language conversion **fast, easy, and accessible** for everyone!  
-
-## 🌟 Features  
-✅ **Supports 30+ Languages** – Instantly translate text between multiple languages.  
-✅ **Google Translate API Powered** – Fast and accurate translations.  
-✅ **Auto Language Detection** – No need to manually select the input language.  
-✅ **Text-to-Speech (TTS)** – Listen to translations aloud.  
-✅ **Speech-to-Text (STT)** – Convert spoken words into text instantly.  
-✅ **Copy Translated Text** – One-click copy function.  
-✅ **Dark Mode** – Reduce eye strain with a stylish dark theme.  
-✅ **Mobile & Desktop Friendly** – Works smoothly on all devices.  
+LinguaGo is a free and open-source AI-powered **text translation tool** that can convert text into 100+ languages. It supports **Text-to-Speech (TTS)**, **Speech-to-Text (STT)**, **Dark Mode**, and many more features.
 
 ---
 
-## 🚀 How to Use  
-1️⃣ **Enter or Speak** the text you want to translate.  
-2️⃣ **Select Input & Output Language** (or let it auto-detect).  
-3️⃣ **Click 'Translate'** – Your translated text appears instantly!  
-4️⃣ **Listen to the Translation** using the **Read Aloud** button.  
-5️⃣ **Copy** the translated text with one click.  
+## 🚀 **Features**
+✅ **AI Translation:** Instantly translate text into 100+ languages  
+✅ **Text-to-Speech (TTS):** Listen to translated text  
+✅ **Speech-to-Text (STT):** Input text using voice  
+✅ **Dark Mode:** Comfortable dark mode for better readability  
+✅ **Copy & Share:** Copy or share translated text easily  
+✅ **Lightweight & Fast:** Simple, lightweight, and fast loading  
 
 ---
 
-## 📌 Installation & Usage  
-### 🔹 Online Usage  
-Simply open the **LinguaGo Web App** in your browser and start translating!  
+## 🎯 **How to Use?**
+1. **🔤 Input Text:** Type text or use voice input  
+2. **🌎 Select Language:** Choose input and output languages  
+3. **🔄 Click "Translate":** Get an instant translation  
+4. **🔊 Listen or Copy:** Listen to the translation or copy it  
 
-### 🔹 Run Locally (HTML + JS)  
-1. **Clone the Repository**  
-   ```bash
+---
+
+## 🛠️ **Installation & Usage**
+You can use LinguaGo directly from the GitHub page or run it locally:
+
+```sh
+# ✅ Clone the repository
+git clone https://github.com/language-converter/linguago-text-converter.git
+
+# ✅ Open index.html in browser
+cd linguago-text-converter
+start index.html
