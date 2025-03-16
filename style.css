@@ -39,15 +39,15 @@ body {
 /* Dark Mode Toggle Button */
 #darkModeToggle {
     position: fixed;
-    top: 10px;
-    right: 10px;
+    bottom: 10px;  /* Moved to the bottom */
+    left: 10px;    /* Positioned to the left */
     background: #000;
     color: #fff;
     border: none;
-    padding: 10px;
+    padding: 12px;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 16px; /* Increased font size */
     transition: 0.3s;
 }
 
@@ -64,6 +64,10 @@ nav {
     align-items: center;
     padding: 15px 20px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode nav {
+    background: #333; /* Dark mode color update */
 }
 
 nav .logo {
@@ -113,10 +117,10 @@ nav ul li a:hover {
 /* Textarea Styling */
 textarea {
     width: 100%;
-    height: 100px;
+    height: 150px; /* Increased height */
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid #ddd;
+    border: 2px solid #007bff; /* Improved border */
     resize: none;
 }
 
@@ -130,7 +134,7 @@ select, button {
 
 /* Button Styling */
 button {
-    background: #007bff;
+    background: linear-gradient(90deg, #007bff, #0056b3);
     color: white;
     border: none;
     font-size: 16px;
@@ -143,7 +147,7 @@ button:hover {
 
 /* Copy Button */
 #copyButton {
-    background: #28a745;
+    background: #1e7e34; /* Dark green */
 }
 
 #copyButton:hover {
@@ -152,17 +156,17 @@ button:hover {
 
 /* Speech-to-Text & Text-to-Speech Buttons */
 .speech-btn {
-    background: #ffcc00;
+    background: #ffa500; /* Orange */
     color: black;
 }
 
 .speech-btn:hover {
-    background: #e6b800;
+    background: #e69500;
 }
 
 /* About Section */
 #about {
-    background: #f8f8f8;
+    background: linear-gradient(135deg, #f8f8f8, #e6e6e6);
     padding: 20px;
     border-radius: 10px;
     margin-top: 20px;
@@ -173,7 +177,7 @@ button:hover {
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     .container {
-        width: 90%;
+        width: 100%; /* Full width for mobile */
     }
     nav {
         flex-direction: column;
