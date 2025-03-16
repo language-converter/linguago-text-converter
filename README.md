@@ -30,5 +30,5 @@ Simply open the **LinguaGo Web App** in your browser and start translating!
 ### 🔹 Run Locally (HTML + JS)  
 1. **Clone the Repository**  
    ```bash
-   git clone https://github.com/yourusername/LinguaGo.git
+   https://language-converter.github.io/linguago-text-converter/
    cd LinguaGo
