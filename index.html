@@ -3,32 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>LinguaGo - AI Multilingual Translator</title>
-    <meta name="description" content="LinguaGo is an AI-powered multilingual translator supporting 100+ languages with text-to-speech, speech-to-text, dark mode, and more!">
-    <meta name="keywords" content="AI translator, text-to-speech, speech-to-text, multilingual translation, free online translator, best translation tool">
-    <meta name="author" content="Sujon Santra">
-    <meta name="robots" content="index, follow">
-    
-    <meta property="og:title" content="LinguaGo - Free AI-Powered Translator">
-    <meta property="og:description" content="Convert text instantly between 100+ languages using AI. Listen to translations, speak for input, and switch to dark mode!">
-    <meta property="og:url" content="https://language-converter.github.io/linguago-text-converter/">
-    <meta property="og:type" content="website">
-
-    <link rel="canonical" href="https://language-converter.github.io/linguago-text-converter/">
+    <title>LinguaGo - AI Translator</title>
+    <meta name="description" content="LinguaGo - AI Multilingual Translator supporting 100+ languages with Text-to-Speech, Image Translation, and more.">
+    <meta name="keywords" content="AI Translator, Image to Text, Speech-to-Text, Multilingual, Free Translator">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <button id="darkModeToggle">🌙 Dark Mode</button>
 
     <nav>
         <div class="logo">LinguaGo</div>
         <ul>
             <li><a href="index.html">🏠 Home</a></li>
-            <li><a href="contact.html">📞 Contact</a></li>
-            <li><a href="privacy.html">🔐 Privacy Policy</a></li>
+            <li><a href="feedback.html">💬 Feedback</a></li>
+            <li><a href="profile.html">👤 Profile</a></li>
         </ul>
+        <button id="darkModeToggle">🌙 Dark Mode</button>
     </nav>
 
     <div class="container">
@@ -37,37 +26,20 @@
         <div class="translator">
             <h2>🌍 Select Language</h2>
             <select id="inputLang"></select>
+            <textarea id="inputText" placeholder="Type or upload an image..."></textarea>
 
-            <textarea id="inputText" placeholder="Type here..."></textarea>
+            <input type="file" id="imageUpload" accept="image/*">
+            <button onclick="convertImage()">📸 Translate from Image</button>
 
             <h2>🎯 Choose Target Language</h2>
             <select id="outputLang"></select>
-
             <textarea id="outputText" placeholder="Translation will appear here..." readonly></textarea>
 
             <button id="translateButton">Translate</button>
             <button id="copyButton">📋 Copy</button>
             <button onclick="speakText()">🔊 Listen</button>
+            <button onclick="saveToDrive()">📂 Save to Google Drive</button>
         </div>
-    </div>
-
-    <div id="about">
-        <h2>📌 About LinguaGo</h2>
-        <p><strong>App Name:</strong> LinguaGo - AI Text Translator</p>
-        <p><strong>Version:</strong> 1.2 (100+ Language Support!)</p>
-        <p><strong>Developer:</strong> Sujon Santra</p>
-        <p><strong>Features:</strong> AI Translation, 100+ Languages, Text-to-Speech, Speech-to-Text, Dark Mode</p>
-    </div>
-
-    <div id="howToUse">
-        <h2>🔹 <span class="blue-text">How to Use LinguaGo</span></h2>
-        <ol>
-            <li>📌 **Step 1:** Select **Input Language** and enter text.</li>
-            <li>🌍 **Step 2:** Choose **Target Language**.</li>
-            <li>🔁 **Step 3:** Click **Translate** and wait for the result.</li>
-            <li>🔊 **Step 4:** Click **Listen** to hear the translation.</li>
-            <li>📋 **Step 5:** Click **Copy** to save the translated text.</li>
-        </ol>
     </div>
 
     <script src="script.js"></script>
