@@ -3,46 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LinguaGo - AI Translator</title>
-    <meta name="description" content="LinguaGo - AI Multilingual Translator supporting 100+ languages with Text-to-Speech, Image Translation, and more.">
-    <meta name="keywords" content="AI Translator, Image to Text, Speech-to-Text, Multilingual, Free Translator">
-    <link rel="stylesheet" href="style.css">
+    <title>LinguaGo - Fast & Friendly Language Translation Tool</title>
+    <meta name="description" content="LinguaGo is a fast, user-friendly language translation tool with 100+ language support, text-to-speech, speech-to-text, and SEO-friendly design.">
+    <meta name="keywords" content="LinguaGo, translation, text-to-speech, speech-to-text, 100+ languages, SEO-friendly, Google ranking">
+    <meta name="author" content="LinguaGo Team">
+    <link rel="canonical" href="https://linguago.com">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Schema Markup for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "LinguaGo",
+        "url": "https://linguago.com",
+        "logo": "https://linguago.com/logo.png",
+        "description": "LinguaGo is a fast, user-friendly language translation tool with 100+ language support."
+    }
+    </script>
 </head>
 <body>
+    <header>
+        <nav>
+            <div class="logo">LinguaGo</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#how-to-use">How to Use</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><button id="mode-toggle">🌙</button></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home">
+            <h1>Welcome to LinguaGo</h1>
+            <p>Translate text instantly with 100+ language support, text-to-speech, and speech-to-text features.</p>
+            <form id="translation-form">
+                <div class="language-select">
+                    <select id="source-lang">
+                        <option value="auto">Auto Detect</option>
+                        <option value="en">English</option>
+                        <option value="es">Spanish</option>
+                        <option value="fr">French</option>
+                        <option value="de">German</option>
+                        <option value="bn">Bengali</option>
+                        <!-- Add more languages here -->
+                    </select>
+                    <select id="target-lang">
+                        <option value="en">English</option>
+                        <option value="es">Spanish</option>
+                        <option value="fr">French</option>
+                        <option value="de">German</option>
+                        <option value="bn">Bengali</option>
+                        <!-- Add more languages here -->
+                    </select>
+                </div>
+                <textarea id="input-text" placeholder="Enter text or speak..." rows="4"></textarea>
+                <button type="button" id="speak-input">🎤 Speak</button>
+                <button type="submit">Translate</button>
+                <textarea id="output-text" placeholder="Translated text will appear here..." rows="4" readonly></textarea>
+                <button type="button" id="speak-output">🔊 Listen</button>
+                <button type="button" id="generate-qr">Generate QR Code</button>
+                <button type="button" id="save-translation">Save Translation</button>
+            </form>
+            <div id="qr-code"></div>
+            <div id="loading-spinner" class="hidden">Loading...</div>
+            <div id="translation-history">
+                <h2>Translation History</h2>
+                <ul id="history-list"></ul>
+            </div>
+        </section>
 
-    <nav>
-        <div class="logo">LinguaGo</div>
+        <!-- About Section -->
+        <section id="about">
+            <h2>About LinguaGo</h2>
+            <p>LinguaGo is a powerful and user-friendly language translation tool designed to make communication easier. With support for over 100 languages, instant translation, text-to-speech, and speech-to-text features, LinguaGo is your go-to solution for all your translation needs.</p>
+        </section>
+
+        <!-- How to Use Section -->
+        <section id="how-to-use">
+            <h2>How to Use LinguaGo</h2>
+            <ol>
+                <li><strong>Enter Text:</strong> Type or paste your text into the input box.</li>
+                <li><strong>Select Languages:</strong> Choose the source and target languages.</li>
+                <li><strong>Translate:</strong> Click the "Translate" button to get instant results.</li>
+                <li><strong>Listen:</strong> Use the text-to-speech feature to listen to the translated text.</li>
+                <li><strong>Save:</strong> Save or download your translations for future use.</li>
+            </ol>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 LinguaGo. All rights reserved.</p>
         <ul>
-            <li><a href="index.html">🏠 Home</a></li>
-            <li><a href="feedback.html">💬 Feedback</a></li>
-            <li><a href="profile.html">👤 Profile</a></li>
+            <li><a href="#privacy-policy">Privacy Policy</a></li>
+            <li><a href="#terms-of-service">Terms of Service</a></li>
         </ul>
-        <button id="darkModeToggle">🌙 Dark Mode</button>
-    </nav>
-
-    <div class="container">
-        <h1>LinguaGo - AI Language Translator</h1>
-
-        <div class="translator">
-            <h2>🌍 Select Language</h2>
-            <select id="inputLang"></select>
-            <textarea id="inputText" placeholder="Type or upload an image..."></textarea>
-
-            <input type="file" id="imageUpload" accept="image/*">
-            <button onclick="convertImage()">📸 Translate from Image</button>
-
-            <h2>🎯 Choose Target Language</h2>
-            <select id="outputLang"></select>
-            <textarea id="outputText" placeholder="Translation will appear here..." readonly></textarea>
-
-            <button id="translateButton">Translate</button>
-            <button id="copyButton">📋 Copy</button>
-            <button onclick="speakText()">🔊 Listen</button>
-            <button onclick="saveToDrive()">📂 Save to Google Drive</button>
-        </div>
-    </div>
-
+    </footer>
     <script src="script.js"></script>
-
 </body>
 </html>
