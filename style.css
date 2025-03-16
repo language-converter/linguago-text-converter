@@ -5,6 +5,54 @@ body {
     text-align: center;
     margin: 0;
     padding: 20px;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* Dark Mode Styling */
+.dark-mode {
+    background-color: #222;
+    color: white;
+}
+
+.dark-mode .container, 
+.dark-mode #about, 
+.dark-mode .guideline-container {
+    background-color: #333;
+    color: white;
+}
+
+.dark-mode textarea, 
+.dark-mode select, 
+.dark-mode button {
+    background: #444;
+    color: white;
+}
+
+.dark-mode nav {
+    background: #0056b3;
+}
+
+.dark-mode nav ul li a {
+    color: #ffcc00;
+}
+
+/* Dark Mode Toggle Button */
+#darkModeToggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+#darkModeToggle:hover {
+    background: #444;
 }
 
 /* 🔹 Navigation Bar */
@@ -55,19 +103,14 @@ nav ul li a:hover {
     margin: auto;
 }
 
-/* Heading styling */
-h2 {
-    color: #333;
-}
-
-/* Translator section layout */
+/* Translator Section */
 .translator {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-/* Textarea styling */
+/* Textarea Styling */
 textarea {
     width: 100%;
     height: 100px;
@@ -77,7 +120,7 @@ textarea {
     resize: none;
 }
 
-/* Dropdown and button styling */
+/* Dropdown and Button Styling */
 select, button {
     padding: 10px;
     border-radius: 5px;
@@ -85,7 +128,7 @@ select, button {
     cursor: pointer;
 }
 
-/* Button styling */
+/* Button Styling */
 button {
     background: #007bff;
     color: white;
@@ -98,7 +141,26 @@ button:hover {
     background: #0056b3;
 }
 
-/* About Section Styling */
+/* Copy Button */
+#copyButton {
+    background: #28a745;
+}
+
+#copyButton:hover {
+    background: #218838;
+}
+
+/* Speech-to-Text & Text-to-Speech Buttons */
+.speech-btn {
+    background: #ffcc00;
+    color: black;
+}
+
+.speech-btn:hover {
+    background: #e6b800;
+}
+
+/* About Section */
 #about {
     background: #f8f8f8;
     padding: 20px;
@@ -108,100 +170,12 @@ button:hover {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-#about h2 {
-    color: #ff3b3b;
-    font-size: 24px;
-}
-
-#about p {
-    font-size: 16px;
-    color: #333;
-    margin: 5px 0;
-}
-
-#about a {
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-#about a:hover {
-    text-decoration: underline;
-}
-
-/* 🔹 Guideline Section Styling */
-.guideline-container {
-    background-color: #f8f9fa;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-    text-align: left;
-}
-
-.guideline-container h2 {
-    color: #d9534f;
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-.guideline-container ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.guideline-container ul li {
-    margin: 8px 0;
-    font-size: 16px;
-}
-
-.guideline-container ul li strong {
-    color: #007bff;
-}
-
-.guideline-container p {
-    font-size: 14px;
-    font-style: italic;
-    text-align: center;
-    margin-top: 10px;
-}
-
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #222;
-        color: white;
-    }
+/* Responsive Design */
+@media screen and (max-width: 768px) {
     .container {
-        background: #333;
-    }
-    textarea, select, button {
-        background: #444;
-        color: white;
-    }
-    #about {
-        background: #333;
-    }
-    #about p {
-        color: white;
-    }
-    #about a {
-        color: #ffcc00;
+        width: 90%;
     }
     nav {
-        background: #0056b3;
+        flex-direction: column;
     }
-    nav ul li a {
-        color: #ffcc00;
-    }
-    .guideline-container {
-        background: #333;
-        color: white;
-    }
-    .guideline-container h2 {
-        color: #ff3b3b;
-    }
-    .guideline-container ul li strong {
-        color: #ffcc00;
-    }
-    }
+}
