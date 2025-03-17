@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,17 +6,6 @@
     <meta name="keywords" content="AI Translator, Indian Language Translator, Free Language Converter, Online Translation">
     <meta name="author" content="Sujon Santra">
     <title>LinguaGo - AI Language Translator</title>
-
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-58HH5L30LY"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-58HH5L30LY');
-    </script>
-
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -28,57 +16,77 @@
             <a href="#">📞 Contact</a>
             <a href="#">📜 Privacy Policy</a>
         </nav>
-    </header>
+    </header><main>
+    <section class="translator">
+        <h2>Translate Your Text Instantly</h2>
+        <select id="input-language">
+            <option value="en">English</option>
+            <option value="bn">Bengali</option>
+            <option value="hi">Hindi</option>
+            <option value="ta">Tamil</option>
+            <option value="te">Telugu</option>
+            <option value="gu">Gujarati</option>
+            <option value="mr">Marathi</option>
+            <option value="pa">Punjabi</option>
+            <option value="kn">Kannada</option>
+            <option value="ml">Malayalam</option>
+            <option value="ur">Urdu</option>
+            <option value="fr">French</option>
+            <option value="de">German</option>
+            <option value="es">Spanish</option>
+            <option value="zh-CN">Chinese</option>
+            <option value="ja">Japanese</option>
+            <option value="ar">Arabic</option>
+        </select>
+        <textarea id="input-text" placeholder="Type here..."></textarea>
 
-    <main>
-        <section class="translator">
-            <h2>Translate Your Text Instantly</h2>
-            <select id="input-language">
-                <option value="en">English</option>
-                <option value="bn">Bengali</option>
-                <option value="hi">Hindi</option>
-                <option value="ta">Tamil</option>
-                <option value="te">Telugu</option>
-                <option value="gu">Gujarati</option>
-                <option value="mr">Marathi</option>
-                <option value="pa">Punjabi</option>
-                <option value="kn">Kannada</option>
-                <option value="ml">Malayalam</option>
-                <option value="ur">Urdu</option>
-                <option value="fr">French</option>
-                <option value="de">German</option>
-                <option value="es">Spanish</option>
-                <option value="zh-CN">Chinese</option>
-                <option value="ja">Japanese</option>
-                <option value="ar">Arabic</option>
-            </select>
-            <textarea id="input-text" placeholder="Type here..."></textarea>
+        <select id="output-language">
+            <option value="bn">Bengali</option>
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+            <option value="ta">Tamil</option>
+            <option value="te">Telugu</option>
+            <option value="gu">Gujarati</option>
+            <option value="mr">Marathi</option>
+            <option value="pa">Punjabi</option>
+            <option value="kn">Kannada</option>
+            <option value="ml">Malayalam</option>
+            <option value="ur">Urdu</option>
+            <option value="fr">French</option>
+            <option value="de">German</option>
+            <option value="es">Spanish</option>
+            <option value="zh-CN">Chinese</option>
+            <option value="ja">Japanese</option>
+            <option value="ar">Arabic</option>
+        </select>
+        <textarea id="output-text" placeholder="Translation will appear here..." readonly></textarea>
 
-            <select id="output-language">
-                <option value="bn">Bengali</option>
-                <option value="en">English</option>
-                <option value="hi">Hindi</option>
-                <option value="ta">Tamil</option>
-                <option value="te">Telugu</option>
-                <option value="gu">Gujarati</option>
-                <option value="mr">Marathi</option>
-                <option value="pa">Punjabi</option>
-                <option value="kn">Kannada</option>
-                <option value="ml">Malayalam</option>
-                <option value="ur">Urdu</option>
-                <option value="fr">French</option>
-                <option value="de">German</option>
-                <option value="es">Spanish</option>
-                <option value="zh-CN">Chinese</option>
-                <option value="ja">Japanese</option>
-                <option value="ar">Arabic</option>
-            </select>
-            <textarea id="output-text" placeholder="Translation will appear here..." readonly></textarea>
+        <button id="translate-btn">Translate</button>
+    </section>
 
-            <button id="translate-btn">Translate</button>
-        </section>
-    </main>
+    <section class="about">
+        <h2>📌 About LinguaGo</h2>
+        <p><strong>App Name:</strong> LinguaGo - AI Text Translator</p>
+        <p><strong>Version:</strong> 2.0</p>
+        <p><strong>Developer:</strong> Sujon Santra</p>
+        <p><strong>Features:</strong> AI-Powered Translation, 100+ Languages, Copy Text Option, Fast & Accurate</p>
+        <p><strong>Website:</strong> <a href="#">GitHub Repo</a></p>
+        <p>LinguaGo is an advanced AI-powered translation tool designed to help users easily translate text into multiple languages, including all Indian languages and major international languages. It is fast, accurate, and user-friendly.</p>
+    </section>
 
-    <script src="script.js"></script>
+    <section class="how-to-use">
+        <h2>🔹 How to Use LinguaGo</h2>
+        <ul>
+            <li>✅ <strong>Select the correct input language:</strong> Choose the source language before translation.</li>
+            <li>✅ <strong>Type in the correct script:</strong> If translating Bengali, use Bengali letters (e.g., "তোমার নাম কি") instead of English letters ("Tumhara naam ki").</li>
+            <li>✅ <strong>Select the output language:</strong> Choose the language you want to translate to.</li>
+            <li>✅ <strong>Click the "Translate" button:</strong> Get instant and accurate translation.</li>
+            <li>✅ <strong>Copy the translated text:</strong> You can easily copy and paste the translated text.</li>
+        </ul>
+    </section>
+</main>
+
+<script src="script.js"></script>
+
 </body>
-</html>
+    </html>
